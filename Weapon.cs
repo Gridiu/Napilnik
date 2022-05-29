@@ -9,6 +9,9 @@ namespace WeaponTask
 
         public Weapon(int damage, int bullets)
         {
+            if (damage <= 0)
+                throw new ArgumentOutOfRangeException(nameof(damage));
+
             if (bullets < 0)
                 throw new ArgumentOutOfRangeException(nameof(bullets));
 
