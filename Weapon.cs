@@ -19,11 +19,10 @@ namespace WeaponTask
             _bullets = bullets;
         }
 
-        public void TryFire(Player player)
-        {
-            if (_bullets == 0)
-                throw new ArgumentOutOfRangeException(nameof(_bullets));
+        public bool HaveBulletToFire => _bullets >= 0;
 
+        public void Fire(Player player)
+        {
             player.TakeDamage(_damage);
 
             _bullets--;
@@ -57,13 +56,14 @@ namespace WeaponTask
 
         public Bot(Weapon weapon)
         {
-            _weapon = weapon;
+            _weapon = new Weapon();
         }
 
         public void OnSeePlayer(Player player)
         {
             if (player.Health > 0)
-                _weapon.TryFire(player);
+                if (_weapon.HaveBulletToFire)
+                    _weapon.Fire(player);
         }
     }
 }
