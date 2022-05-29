@@ -61,6 +61,9 @@ namespace WeaponTask
 
         public void OnSeePlayer(Player player)
         {
+            if (player == null)
+                throw new NullReferenceException(nameof(player));
+
             if (player.Health > 0)
                 if (_weapon.HaveBulletToFire)
                     _weapon.Fire(player);
