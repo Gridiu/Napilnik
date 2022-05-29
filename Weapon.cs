@@ -54,9 +54,9 @@ namespace WeaponTask
     {
         private readonly Weapon _weapon;
 
-        public Bot(Weapon weapon)
+        public Bot(int damage, int count)
         {
-            _weapon = new Weapon();
+            _weapon = new Weapon(damage, count);
         }
 
         public void OnSeePlayer(Player player)
