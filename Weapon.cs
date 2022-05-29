@@ -56,7 +56,7 @@ namespace WeaponTask
 
         public Bot(Weapon weapon)
         {
-            _weapon = weapon ?? throw new NullReferenceException(nameof(_weapon));
+            _weapon = weapon ?? throw new NullReferenceException(nameof(weapon));
         }
 
         public void OnSeePlayer(Player player)
