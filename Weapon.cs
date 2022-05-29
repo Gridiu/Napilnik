@@ -54,9 +54,9 @@ namespace WeaponTask
     {
         private readonly Weapon _weapon;
 
-        public Bot(int damage, int count)
+        public Bot(Weapon weapon)
         {
-            _weapon = new Weapon(damage, count);
+            _weapon = weapon ?? throw new NullReferenceException(nameof(_weapon));
         }
 
         public void OnSeePlayer(Player player)
